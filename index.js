@@ -1,4 +1,4 @@
-const apiKey = "57c4a2c7403d439e2e03aab60ea7e1df";
+const apiKey = "";
 
 const city = document.querySelector(".city");
 const temp = document.querySelector(".temp");
