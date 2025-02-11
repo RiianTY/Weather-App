@@ -21,7 +21,7 @@ input.addEventListener("click", function (e) {
       .then((data) => {
         if (data.length > 0) {
           const { lat, lon } = data[0]; // Assuming the first result is correct
-          const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+          const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
           return fetch(apiUrl);
         } else {
@@ -31,9 +31,11 @@ input.addEventListener("click", function (e) {
       .then((response) => response.json())
       .then((data) => {
         city.textContent = `${data.name}`;
-        temp.textContent = `${data.main.temp}`;
-        humidity.textContent = `${data.main.humidity}`;
-        sky.textContent = `${data.weather[0].description}`;
+        temp.textContent = `Temprature: ${Math.trunc(data.main.temp)}°C`;
+        humidity.textContent = `Humidity: ${data.main.humidity}%`;
+        sky.innerHTML = `
+                          <img class="sky-image" src="./animated/${data.weather[0].icon}.png" alt="" />
+                          <p class="sky-status">${data.weather[0].description}</p>`;
       })
       .catch((error) => console.error("Error:", error));
   } else {
