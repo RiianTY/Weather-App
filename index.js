@@ -3,17 +3,17 @@ const apiKey = "";
 const city = document.querySelector(".city");
 const temp = document.querySelector(".temp");
 const humidity = document.querySelector(".humidity");
-const sky = document.querySelector(".sky");
+const sky = document.querySelector(".sky-status");
+const feelsLike = document.querySelector(".feels-like");
 
 const input = document.querySelector(".input");
 const value = document.querySelector(".cityInput");
 
-const cityName = [];
+let cityName = [];
 
 input.addEventListener("click", function (e) {
   if (input) {
     cityName.push(value.value);
-    e.preventDefault();
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
     )
@@ -30,16 +30,28 @@ input.addEventListener("click", function (e) {
       })
       .then((response) => response.json())
       .then((data) => {
+        document.querySelector(".temp-img").style.display = "flex";
+        const weatherIconSelector =
+          `./Images/animated/${data.weather[0].icon}-animated.gif` ||
+          `./Images/static/${data.weather[0].icon}.png`;
+
+        sky.innerHTML += `
+                          <img class="sky-image" src="${weatherIconSelector}" alt="" />
+                          <p class="sky-status-txt">${data.weather[0].description}</p>
+                          `;
         city.textContent = `${data.name}`;
-        temp.textContent = `Temprature: ${Math.trunc(data.main.temp)}°C`;
+        feelsLike.textContent = `feels like: ${Math.trunc(
+          data.main.feels_like
+        )}°C`;
+        temp.textContent = `${Math.trunc(data.main.temp)}°C`;
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
-        sky.innerHTML = `
-                          <img class="sky-image" src="./animated/${data.weather[0].icon}.png" alt="" />
-                          <p class="sky-status">${data.weather[0].description}</p>`;
       })
       .catch((error) => console.error("Error:", error));
   } else {
     console.log(cityName);
     console.log("error");
   }
+  cityName = [];
+  value.value = "";
+  sky.innerHTML = "";
 });

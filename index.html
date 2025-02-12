@@ -4,31 +4,66 @@
     <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="card">
-        <form class="weatherForm">
+        <div class="wrapper">
           <input type="text" class="cityInput" placeholder="Enter city" />
-          <button class="input" type="submit">Get weather</button>
-        </form>
-
-        <h1 class="city">Location</h1>
+          <button class="input" type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+            >
+              <path
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <h1 class="city">London</h1>
         <div class="sky">
-          <img class="sky-image" src="./animated/01d.png" alt="" />
-          <p class="sky-status">clear sky</p>
+          <div class="sky-status">
+            <img
+              class="sky-image"
+              src="./Images/animated/01d-animated.gif"
+              alt=""
+            />
+          </div>
+          <div class="temp-layout">
+            <p class="sky-status-txt">clear sky</p>
+            <p class="temp">12°C</p>
+            <p class="feels-like">Feels like: 10°C</p>
+            <p class="humidity">Humidity: 70%</p>
+          </div>
         </div>
 
-        <div class="temp">
-          <img src="./animated/temperature.png" alt="" />
-          <p class="temp">temprature:</p>
-        </div>
-        <p class="humidity">humidity:</p>
-        <div class="wind">
-          <img src="./animated/wind.png" alt="" />
-          <p>wind speed</p>
-        </div>
+        <!-- <div class="sky">
+          <h1 class="city"></h1>
+          <div class="sky-status"></div>
+          <div class="temp-layout">
+            <img
+              class="temp-img"
+              src="./Images/static/temperature.png"
+              alt=""
+            />
+            <p class="temp"></p>
+          </div>
+
+          <p class="feels-like"></p>
+          <p class="humidity"></p>
+        </div> -->
       </div>
     </div>
 
