@@ -12,7 +12,7 @@
   align-items: center;
   height: 100vh;
   margin: auto;
-  background-color: rgb(201, 201, 201);
+  background-color: rgb(240, 240, 240);
 }
 
 .sky-image {
@@ -31,13 +31,21 @@ p::first-letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  min-width: 300px;
-  min-height: 400px;
+  min-width: 275px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 10px 1px rgb(156, 156, 156);
   border-radius: 10px;
+  margin: 50%;
 }
+
+/* .wrapper-outter {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 62px;
+  width: 250px;
+  border-radius: 10px;
+} */
 
 .wrapper {
   display: flex;
@@ -45,11 +53,10 @@ p::first-letter {
   justify-content: center;
   align-items: center;
   border: 1px solid rgb(129, 129, 129);
-  min-width: 200px;
-  height: 30px;
   border-radius: 15px;
-  margin-top: 15px;
   padding-right: 10px;
+  margin: 20px 0;
+  background-color: white;
 }
 
 .sky {
@@ -61,7 +68,7 @@ p::first-letter {
 }
 
 .cityInput {
-  min-width: 78%;
+  width: 100%;
   height: 100%;
   border: 0;
   padding-left: 20px;
@@ -78,11 +85,6 @@ p::first-letter {
 .temp {
   font-size: 3.5em;
   font-weight: 600;
-}
-
-.temp-img {
-  /* set to none */
-  display: flex;
 }
 
 .temp-layout {
@@ -103,11 +105,16 @@ p::first-letter {
 }
 
 .city {
-  width: 80%;
+  width: 100%;
   text-align: center;
   margin-top: 20px;
+  font-size: 1.5em;
 }
 
 .sky {
   margin: 0;
+}
+
+.data {
+  display: none;
 }
