@@ -1,4 +1,4 @@
-const apiKey = "";
+const apiKey = "00cfd9fc08a3fcf0cf7ec062eb857fde";
 
 const city = document.querySelector(".city");
 const temp = document.querySelector(".temp");
@@ -20,12 +20,13 @@ input.addEventListener("click", function (e) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          min-height: 400px;
+          min-height: 300px;
           padding: 10px;
           margin: 50%;
           background-color: rgb(255, 255, 255);
           box-shadow: 0 0 10px 1px rgb(156, 156, 156);
-          border-radius: 10px;"`;
+          border-radius: 10px;"
+          `;
 
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
@@ -35,7 +36,6 @@ input.addEventListener("click", function (e) {
         if (data.length > 0) {
           const { lat, lon } = data[0]; // Assuming the first result is correct
           const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
           return fetch(apiUrl);
         } else {
           throw new Error("City not found");
@@ -43,6 +43,7 @@ input.addEventListener("click", function (e) {
       })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.dt_txt);
         // document.querySelector(".temp-img").style.display = "flex";
         const weatherIconSelector =
           `./Images/animated/${data.weather[0].icon}-animated.gif` ||
