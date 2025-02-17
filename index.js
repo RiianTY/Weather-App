@@ -1,5 +1,5 @@
 // throw away api key with limits set
-const apiKey = "00cfd9fc08a3fcf0cf7ec062eb857fde";
+const apiKey = OPENWEATHER_API_KEY;
 
 const city = document.querySelector(".city");
 const temp = document.querySelector(".temp");
