@@ -30,7 +30,7 @@ input.addEventListener("click", function (e) {
           `;
 
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
